@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from first_app import views
+# from first_app import views
+from second_app import views
 
 # map applications to a certain URL
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'), first app url
+    url(r'^$', views.index, name='second_app_index'),
     path('admin/', admin.site.urls)
 ]
