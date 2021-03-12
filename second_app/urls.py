@@ -2,5 +2,6 @@ from django.conf.urls import url
 from second_app import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index')
+    url(r'^$', views.index, name='index'),
+    url(r'^help/', views.help_http, name='help')
 ]
