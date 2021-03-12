@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from first_app import views
+from djangoBasics.first_app import views
 
 # map applications to a certain URL
 urlpatterns = [
