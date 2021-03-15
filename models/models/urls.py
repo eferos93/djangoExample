@@ -20,5 +20,5 @@ from first_model_app import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('first_module_app/', include('first_model_app.urls'))
+    path('first_model_app/', include('first_model_app.urls'))
 ]
