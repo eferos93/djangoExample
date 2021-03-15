@@ -10,7 +10,7 @@ import random
 from first_model_app.models import AccessRecord, Topic, Webpage
 from faker import Faker
 
-fakegen = Faker()
+fake_gen = Faker()
 topics = ['Search', 'Social', 'Marketplace', 'News', 'Games']
 
 
@@ -25,9 +25,9 @@ def populate(n=5):
     for entry in range(n):
         # get the topic for the entry
         top = add_topic()
-        fake_url = fakegen.url()
-        fake_date = fakegen.date()
-        fake_name = fakegen.company()
+        fake_url = fake_gen.url()
+        fake_date = fake_gen.date()
+        fake_name = fake_gen.company()
 
         # create webpage entry
         webpage = Webpage.objects.get_or_create(topic=top, url=fake_url, name=fake_name)[0]
