@@ -7,8 +7,11 @@
 </head>
 <body>
     <div class="container">
-
-        {{ form }}
+        <form method="post">
+            {{ form.as_p }} <!-- as_p = as paragraph-->
+            {% csrf_token %} <!-- token that guarantees security when submitting the form -->
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
     </div>
 </body>
 </html>
