@@ -1,6 +1,6 @@
 import os
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'models.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'model_2.settings')
 
 import django
 
@@ -12,18 +12,15 @@ from faker import Faker
 fakegen = Faker()
 
 
-def add_user():
-    t = User.objects.get_or_create()[0]
+def add_user(name, surname, email):
+    t = User.objects.get_or_create(first_name=name, last_name=surname, email=email)[0]
     t.save()
-    return t
+    # return t
 
 
 def populate(n=10):
     for entry in range(n):
-        user = add_user()
-        user.first_name = fakegen.name()
-        user.last_name = fakegen.last_name()
-        user.email = fakegen.email()
+        add_user(fakegen.first_name(), fakegen.last_name(), fakegen.email())
 
 
 if __name__ == '__main__':

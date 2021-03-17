@@ -5,6 +5,25 @@
     <title>Users</title>
 </head>
 <body>
+    <h1>Users</h1>
+    <div>
+        {% if user_records %}
+            <ol>
+                {% for usr in user_records %}
+                    <li> User info
+                        <ul>
+                            <li>First-name: {{ usr.first_name }}</li>
+                            <li>Last-name: {{ usr.last_name }}</li>
+                            <li>Email: {{ usr.email }}</li>
+                        </ul>
+                    </li>
+                {% endfor %}
+
+            </ol>
+        {% else %}
+            <h2>Ops! looks like the DB's empty!</h2>
+        {% endif %}
+    </div>
 
 </body>
 </html>
