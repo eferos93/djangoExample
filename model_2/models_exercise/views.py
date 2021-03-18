@@ -16,7 +16,6 @@ def users(request):
     form = NewUserForm()
     if request.method == 'POST':  # this means if someone hit submit
         form = NewUserForm(request.POST)
-
         if form.is_valid():
             form.save(commit=True)  # commit data to the database
             return index(request)
