@@ -3,27 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Users</h1>
-    <div>
-        {% if user_records %}
-            <ol>
-                {% for usr in user_records %}
-                    <li> User info
-                        <ul>
-                            <li>First-name: {{ usr.first_name }}</li>
-                            <li>Last-name: {{ usr.last_name }}</li>
-                            <li>Email: {{ usr.email }}</li>
-                        </ul>
-                    </li>
-                {% endfor %}
-
-            </ol>
-        {% else %}
-            <h2>Ops! looks like the DB's empty!</h2>
-        {% endif %}
+{#    <h1>Users</h1>#}
+{#    <div>#}
+{#        {% if user_records %}#}
+{#            <ol>#}
+{#                {% for usr in user_records %}#}
+{#                    <li> User info#}
+{#                        <ul>#}
+{#                            <li>First-name: {{ usr.first_name }}</li>#}
+{#                            <li>Last-name: {{ usr.last_name }}</li>#}
+{#                            <li>Email: {{ usr.email }}</li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{##}
+{#            </ol>#}
+{#        {% else %}#}
+{#            <h2>Ops! looks like the DB's empty!</h2>#}
+{#        {% endif %}#}
+{#    </div>#}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Sign up here</h1>
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary", value="submit">
+        </form>
     </div>
+</div>
+
+
 
 </body>
 </html>
