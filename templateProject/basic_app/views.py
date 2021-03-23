@@ -4,7 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'basic_app/index.html')
+    context_dictionary = {'text': 'Hello world!', 'number': 25}
+    return render(request, 'basic_app/index.html', context=context_dictionary)
 
 
 def other(request):
