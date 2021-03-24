@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class UserProfileInfo(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     # custom fields
     portfolio_site = models.URLField(blank=True)
     # uploaded images are gonna be saved in media/profile_pics
