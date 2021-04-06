@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from . import models
 
@@ -30,3 +31,29 @@ class SchoolDetailView(DetailView):
     template_name = 'basic_app/school_detail.html'
     # by default, the name of the context dict would be just the model name lower cased
     context_object_name = 'school_detail'
+
+
+class SchoolCreateView(CreateView):
+    # fields you can create
+    fields = ('name', 'principal', 'location')
+    model = models.School
+
+    # if creation succeeded, go to the returned url
+    def get_success_url(self):
+        return reverse('basic_app:detail', kwargs={'pk': self.object.pk})
+
+
+class SchoolUpdateView(UpdateView):
+    # fields you can modify
+    fields = ('name', 'principal')
+    model = models.School
+
+    # if modification succeeded, go to the returned link
+    def get_success_url(self):
+        return reverse('basic_app:detail', kwargs={'pk': self.object.pk})
+
+
+class SchoolDeleteView(DeleteView):
+    model = models.School
+    # does it in the lazy way, namely once the school is deleted, go back to the given page
+    success_url = reverse_lazy('basic_app:list')
