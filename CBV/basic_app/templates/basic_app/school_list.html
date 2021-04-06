@@ -4,6 +4,7 @@
     <ol>
 {#        {% for school in school_list %} {#school_list comes from the CBV SchoolListView: takes model name, lower case it and append '_list'#}
         {% for school in schools %} {# you can also define a name for the dictionary returned by the CBV #}
+{#            we pass the school id as link#}
             <h2><li><a href="{{ school.id }}">{{ school.name }}</a></li></h2>
         {% endfor %}
     </ol>

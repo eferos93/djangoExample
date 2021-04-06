@@ -19,6 +19,7 @@ class IndexView(TemplateView):
         context['inject_me'] = 'Basic injection'
         return context
 
+
 class SchoolListView(ListView):
     model = models.School
     context_object_name = 'schools'  # name of the context dict returned
