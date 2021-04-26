@@ -12,7 +12,9 @@ class MovieAdmin(admin.ModelAdmin):
     # django will create a filter box for the fields listed
     list_filter = ['release_year', 'length']
     # admin list view will show all the attributed listed here
-    list_display = ['title', 'release_year', 'length' ]
+    list_display = ['title', 'release_year', 'length']
+    # what you can edit from the list view
+    list_editable = ['length']
 
 
 admin.site.register(models.Customer)
