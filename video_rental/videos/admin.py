@@ -11,6 +11,8 @@ class MovieAdmin(admin.ModelAdmin):
     search_fields = ['title']
     # django will create a filter box for the fields listed
     list_filter = ['release_year', 'length']
+    # admin list view will show all the attributed listed here
+    list_display = ['title', 'release_year', 'length' ]
 
 
 admin.site.register(models.Customer)
